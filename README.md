@@ -1,6 +1,6 @@
 # Helium Heartbeat
 
-![hotspot-heartbeats](./sample-image.png)
+![hotspot-heartbeats](./_assets/sample-image.png)
 
 ## A Quick Overview
 
