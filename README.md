@@ -1,6 +1,6 @@
 # Helium Heartbeat
 
-![hotspot-heartbeats](./_assets/sample-image.png)
+![hotspot-heartbeats](./_assets/sample_output_warning.png)
 
 ## A Quick Overview
 
@@ -10,28 +10,24 @@ This script collects data for every hotspot in a given wallet, comparing the Hel
 
 ## Blog Post
 
-You can find a more detailed walk through on my thinking and implementation on [my blog][blog-post-link]
+You can find a more detailed walk through on the implementation on [my blog][blog-post-link]
 
-[blog-post-link]: https://gutentag.co/34pMf90
+[blog-post-link]: https://gutentag.co/3MzZNAb
 
 ## Setup
 
 ### virtualenv
 
-This code was written with Python3.9, though I suspect it will work well with Python3.7+ (it uses `f-strings` quite a bit)
+This code was written with Python3.9, though I suspect it will work well with Python3.6+ (it uses `f-strings` quite a bit)
+
+Create a virutal environment and install the `requirements` using
+
+```bash
+pip install -r requirements.txt
+```
+
+### Pushover API Keys
+
+Two [Pushover][pushover-link] Apps are ercommended, at least one is necessary
 
 ---
-
-## What is Helium?
-
-[Glad you asked.][what-is-helium-video]
-
-Helium is a global, distributed network of Hotspots that create public, long-range wireless coverage for Internet of Things (IoT) devices.
-
-It is pretty, dang, cool.
-
-The Helium relies on Hosts, people like you and me to provide this long-range wireless coverage by installing Helium Hotspots in our homes, offices or whereever we (with permission!) can!
-
-How the network works is a whole other blog post, but for quick reference, checkout the [FAQ on the Helium website][helium-faq].
-
-[what-is-helium-video]: https://gutentag.co/3CtTbyp
