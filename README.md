@@ -12,7 +12,7 @@ This script collects data for every hotspot in a given wallet, comparing the Hel
 
 You can find a more detailed walk through on my thinking and implementation on [my blog][blog-post-link]
 
-[blog-post-link]: https://www.samgutentag.com/blog
+[blog-post-link]: https://gutentag.co/34pMf90
 
 ## Setup
 
