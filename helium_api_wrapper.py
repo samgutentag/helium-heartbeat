@@ -13,8 +13,9 @@ Use CalVer versioning as described at https://calver.org/
 __authors__ = ["Sam Gutentag"]
 __email__ = "developer@samgutentag.com"
 __maintainer__ = "Sam Gutentag"
-__version__ = "2022.03.09.0"
+__version__ = "2022.03.09.1"
 
+from os import getlogin
 from os.path import basename
 
 import requests
@@ -22,7 +23,7 @@ import requests
 API_HELIUM = "api.helium.io"
 HEADERS = {
     "User-Agent": f"solitaryPixels_{basename(__file__)}/{__version__}",
-    "From": f"{__email__}",
+    "From": f"{getlogin()}.{basename(__file__)}@heliumheartbeat.com",
 }
 
 
