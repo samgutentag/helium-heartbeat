@@ -1,4 +1,4 @@
-# Helium Heartbeat
+# Helium Heartbeat 🎈
 
 ![hotspot-heartbeats](./_assets/sample_output_warning.png)
 
