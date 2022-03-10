@@ -8,8 +8,6 @@ This script collects data for every hotspot in a given wallet, comparing the Hel
 
 To anyone hoping to use this script to monitor your own hotspots please clone or fork this repo! If you see mistakes or have suggestions please submit pull requests!
 
-It is all
-
 [pushover-link]: https://pushover.net/
 
 ## Setup
