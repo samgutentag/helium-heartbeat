@@ -43,9 +43,11 @@ def hotspot_activity(address, cursor="", max_depth=2, api_url=API_HELIUM):
             break
 
 
-def hotspots_for_account(address, cursor="", api_url=API_HELIUM):
-    baseurl = f"https://{api_url}/v1/accounts/{address}/hotspots"
-    while True:
+def hotspot_activity(address, cursor="", max_depth=3, api_url="api.helium.io"):
+    baseurl = f"https://{api_url}/v1/hotspots/{address}/roles"
+    depth = 0
+    while True and depth < max_depth:
+        depth += 1
         _url = f"{baseurl}?cursor={cursor}"
         r = requests.get(_url, headers=HEADERS).json()
         try:
