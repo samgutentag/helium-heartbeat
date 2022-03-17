@@ -1,16 +1,11 @@
 #! /usr/bin/env python3
 
-"""Collect Stats from Hotspots in Wallet
-
-Track the sync status, most recent block activity, ping, and other
-metrics for each hotspot.
-
-"""
+"""Collect Stats from Hotspots in Wallet."""
 
 __authors__ = ["Sam Gutentag"]
 __email__ = "developer@samgutentag.com"
 __maintainer__ = "Sam Gutentag"
-__version__ = "2022.03.09.1"
+__version__ = "2022.03.17.0"
 
 
 import json
@@ -19,7 +14,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
-import helium_api_wrapper as pythelium
+import helium_api_wrapper
 
 
 def setup_logging():
@@ -64,7 +59,9 @@ def get_latest_active_block(hotspot=None):
 
     """
     try:
-        _activity = list(pythelium.hotspot_activity(hotspot["address"], max_depth=3))[0]
+        _activity = list(
+            helium_api_wrapper.hotspot_activity(hotspot["address"], max_depth=3)
+        )[0]
         return _activity["height"]
     except Exception:
         return -1
@@ -111,13 +108,13 @@ def get_wallet_heartbeat(wallet_addr=os.environ["WALLET_ADDR"]):
         result (dict): dictionary of hotspots heartbeat data
 
     Raises:
-        Exception: broad exceptiopn for when the helium API fails to
+        Exception: broad exception for when the helium API fails to
                     return a list of hotspots for the given wallet
     """
 
-    # get list of hotspots for address
+    # get list of hotspots for wallet address
     try:
-        wallet_hotspots = pythelium.hotspots_for_account(address=wallet_addr)
+        wallet_hotspots = helium_api_wrapper.hotspots_for_account(address=wallet_addr)
     except Exception as e:
         return f"Something went wrong getting the Hotspots for Wallet\n{e}"
 
