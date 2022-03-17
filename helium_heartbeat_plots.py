@@ -1,11 +1,11 @@
 #! /usr/bin/env python3
 
-"""Generate Plots From Heartbeat Data And Send Them Via Pushover"""
+"""Generate Plots From Heartbeat Data And Send Them Via Pushover."""
 
 __authors__ = ["Sam Gutentag"]
 __email__ = "developer@samgutentag.com"
 __maintainer__ = "Sam Gutentag"
-__version__ = "2022.03.09.0"
+__version__ = "2022.03.17.0"
 
 import json
 import logging
@@ -66,7 +66,7 @@ def load_data(days_back=3):
     search_slug = os.path.join(data_dir, "*", "*", "*.json")
     files = sorted(glob(search_slug))
 
-    # trim to online include latest (daysback * 240) files
+    # trim to online include latest (daysback * 144) files
     # 144 being the max number of files collected in 10 minute intervals
     # per day this should match the cron
     file_limit = (days_back + 1) * 144
@@ -112,7 +112,7 @@ def load_data(days_back=3):
     return data
 
 
-def plot_data(data=None, days_back=7, warning_threshold=450):
+def plot_data(data=None, days_back=3, warning_threshold=450):
     """Plot hotspot heartbeat data"""
 
     # hotspot status represented in
@@ -199,7 +199,7 @@ def plot_data(data=None, days_back=7, warning_threshold=450):
                 where=d.blocks_inactive > warning_threshold,
             )
 
-        # draw verticla lines on dates
+        # draw vertical lines on dates
         date_lines = d.index.map(lambda x: x.date()).unique().values[1:]
         for date_line in date_lines:
             axes[idx].axvline(x=date_line, alpha=0.2)
